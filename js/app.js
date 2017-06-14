@@ -26,10 +26,8 @@ var crearTarea = function (tarea) {
   var nombre = tarea.name;
   var estado = tarea.status[0];
   var id = tarea._id;
-  $(nombre).parent().attr("data-id", id);
-  
 
-  var $tr = $("<tr />");
+  var $tr = $("<tr />", {"data-id" : id});
 
   var $nombreTd = $("<td />");
   $nombreTd.text(nombre);
@@ -63,29 +61,29 @@ var mostrarDetalle = function (e) {
   /*$.getJSON(api.url, function(tareas){
     
   });*/
-  alert("funciona");
-  
-  
+
+
+
 };
 
-var borrarTarea = function(e) {
-  e.preventDefault();
-  var id = $(this).attr("data-id");
+var borrarTarea = function () {
+
+  var $padre= $(this).parents("tr")
+  var id = $(this).parents("tr").attr("data-id");
+  $padre.remove();
+  
   $.ajax(api.url + id, {
-      method: "DELETE",
-      dataType: "json",
-      success: function (response) {
-        var personajes = response.results;
-        var total = (response.count);
-        mostrarPersonajes(personajes);
-        mostrarTotalPersonajes(total);
-      },
-  error: function (error) {
-    console.log("error", error);
-  }
-});
+    method: "DELETE",
+    dataType: "json",
+    success: function (response) {
+     console.log(response)
+    },
+    error: function (error) {
+      console.log("error", error);
+    }
+  });
 };
-}
+
 
 
 $(document).on("click", ".glyphicon-remove-circle", borrarTarea);
