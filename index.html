@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD tareas</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+  <h1>Lista de tareas</h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Agregar tarea +
+</button>
+
+  <table class="table table-striped">
+    <thead>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </thead>
+    <tbody id="lista-tareas">
+    
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <form id="formulario">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nueva tarea</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre tarea</label>
+              <input id="nombreTarea" type="text" class="form-control" id="exampleInputEmail1" placeholder="tarea">
+            </div>
+            <!--<div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Segundo modal que muestra detalle -->
+  <div id="modalDetalle"class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Mostrar Detalle</h4>
+      </div>
+      <div class="modal-body">
+        <p>Id: <span id="id"></span></p>
+        <p>Fecha de creación<span id="fecha"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
